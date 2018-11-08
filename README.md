@@ -15,6 +15,8 @@ many physically everything came to the Meeting. Implement notifying participants
     3. Liquibase
     4. Lombok
     5. Spring Security
+    6. Spring MVC
+    7. Spring Data
 
 ## Initial Setup
 

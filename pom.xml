@@ -11,10 +11,11 @@
     <packaging>war</packaging>
 
     <properties>
-        <spring.mvc>4.0.0.RELEASE</spring.mvc>
         <javax.servlet>3.0.1</javax.servlet>
+        <spring.mvc>5.1.1.RELEASE</spring.mvc>
+        <spring.securiry>5.1.0.RELEASE</spring.securiry>
+        <spring.data>2.1.2.RELEASE</spring.data>
         <jstl.version>1.2</jstl.version>
-        <spring.securiry>3.2.0.RELEASE</spring.securiry>
     </properties>
 
     <dependencies>
@@ -65,6 +66,37 @@
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-taglibs</artifactId>
             <version>${spring.securiry}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-jpa</artifactId>
+            <version>${spring.data}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.2</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>5.3.7.Final</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-envers</artifactId>
+            <version>5.3.6.Final</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>4.0.2.GA</version>
         </dependency>
 
     </dependencies>
