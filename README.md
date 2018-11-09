@@ -27,6 +27,9 @@ To setup this project locally, use the following configuration:
     * Create mysql user `root / 1234`
     * Create schemas `conference_management`, `conference_management_test`
     * Run maven plugin liquidbase update
-    * Super admin credential: `super_admin / 123456`
-
+    * Credentials: 
+        - `admin / 123456`
+        - `moderator / 123456`
+        - `user / 123456`
+    
 ## Testing
