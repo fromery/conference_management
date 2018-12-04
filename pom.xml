@@ -112,13 +112,6 @@
             <artifactId>jstl</artifactId>
         </dependency>
 
-        <!--To delete-->
-        <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-            <version>1.4.187</version>
-        </dependency>
-
     </dependencies>
 
     <build>
