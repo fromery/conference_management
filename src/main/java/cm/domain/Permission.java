@@ -1,7 +1,7 @@
 package cm.domain;
 
 import javax.persistence.*;
-/*TODO: Implement*/
+/*TODO: Implement or needed?*/
 /*
 
 @Data

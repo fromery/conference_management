@@ -6,20 +6,20 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 @RequestMapping("/")
-public class HomeController {
+public class HomeApi {
 
-	@RequestMapping(value = "/")
+	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String goHome(){
-		return "/home";
+		return "home";
 	}
 
-	@RequestMapping("/registration")
-	public String goRegistration(){
-		return "/registration";
-	}
-
-	@RequestMapping("/login")
+	@RequestMapping(value = "/login", method=RequestMethod.GET)
 	public String goLogin(){
-		return "/login";
+		return "login";
 	}
+	@RequestMapping("signup")
+	public String goRegistration(){
+		return "signup";
+	}
+
 }

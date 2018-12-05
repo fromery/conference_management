@@ -10,20 +10,20 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller()
-@RequestMapping("/users")
-public class UserApi {
+@RequestMapping("/reports")
+public class ReportApi {
 
 	/*@Autowired
 	private UserRepository userRepository;*/
 	
 	/*@ModelAttribute
-	public User getUser(){
+	public User getReport(){
 		return new User();
 	}*/
 
 	@RequestMapping(value="/", method= RequestMethod.GET)
-	public String getUsersPage(){
-		return "users";
+	public String getReportsPage(){
+		return "reports";
 	}
 
 	/*@ResponseBody
@@ -50,5 +50,5 @@ public class UserApi {
 		model.addAttribute("user", user);
 		return "user";
 	}*/
-	
+
 }

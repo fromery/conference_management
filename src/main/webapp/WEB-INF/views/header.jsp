@@ -1,5 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" %>
-
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <style>
 
     #header {
@@ -30,7 +29,7 @@
         font-size: 16px;
     }
 
-    #sign_in {
+    #sign_up {
         border-color: #ffffff;
         border-radius: 4px;
     }
@@ -52,12 +51,12 @@
     </div>
 
     <ul class="menu">
-        <li class="menu_item"><a class="menu_item_link" href="/" >Home</a></li>
-        <li class="menu_item"><a class="menu_item_link" href="#" >Users</a></li>    <%--TODO--%>
-        <li class="menu_item"><a class="menu_item_link" href="#" >Reports</a></li>  <%--TODO--%>
-        <li class="menu_item"><a class="menu_item_link" href="#" >Conferences</a></li>
-        <li class="menu_item"><a class="menu_item_link" href="${contextPath}/login" >Log In</a></li>
-        <li class="menu_item"><a class="menu_item_link" id="sign_in" href="${contextPath}/registration" >Sign Up</a></li>
+        <li class="menu_item"><a class="menu_item_link" href="<spring:url value="/"/>">Home</a></li>
+        <li class="menu_item"><a class="menu_item_link" href="<spring:url value="/users/"/>">Users</a></li>
+        <li class="menu_item"><a class="menu_item_link" href="<spring:url value="/reports/"/>">Reports</a></li>
+        <li class="menu_item"><a class="menu_item_link" href="<spring:url value="/conferences/"/>">Conferences</a></li>
+        <li class="menu_item"><a class="menu_item_link" href="<spring:url value="/login/"/>">Log In</a></li>
+        <li class="menu_item"><a class="menu_item_link" id="sign_up" href="<spring:url value="/signup/"/>">Sign Up</a></li>
     </ul>
 
 </section>

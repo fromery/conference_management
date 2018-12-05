@@ -1,14 +1,9 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-         pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html>
-<html lang="en">
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
 <head>
     <meta charset="utf-8">
-    <title>CMS-Login</title>
+    <title>CMS-Sign Up</title>
 
     <style>
 
@@ -23,15 +18,15 @@
             background-color: #f2f5f5;
         }
 
-        .login_wrapper {
+        .sign_up_wrapper {
             width: 490px;
-            height: 340px;
+            height: 448px;
             margin: 100px auto;
             border-radius: 2%;
             background-color: #ffffff;
         }
 
-        .login_header {
+        .sign_up_header {
             padding-top: 15px;
             padding-bottom: 10px;
             color: #000000;
@@ -43,7 +38,7 @@
             border-top: 2px solid #f2f5f5;
         }
 
-        .login_form {
+        .sign_up_form {
             display: flex;
             flex-direction: column;
             margin: 20px auto;
@@ -60,7 +55,7 @@
             font-size: 18px;
         }
 
-        .login_button {
+        .create_account_button {
             margin: 0 auto 10px auto;
             width: 146px;
             height: 59px;
@@ -75,17 +70,17 @@
             cursor: pointer;
         }
 
-        .footer_login {
+        .footer_sign_up {
             margin: 15px;
             text-align: center;
         }
 
-        .sign_up {
+        .log_in {
             text-decoration: none;
         }
 
-        .sign_up:hover ,
-        .sign_up:focus {
+        .log_in:hover ,
+        .log_in:focus {
             background-color: #60d3ef;
             color: #ffffff;
         }
@@ -114,40 +109,41 @@
 </head>
 <body>
 
-    <section class="login_wrapper">
-        <div class="login_header">
-            <p>
-                Welcome back!
-            </p>
-        </div>
+<section class="sign_up_wrapper">
+    <div class="sign_up_header">
+            <span>
+                Let's get started!
+            </span>
+    </div>
 
-        <div class="line"></div>
+    <div class="line"></div>
 
-        <c:url value="/login" var="loginVar"/>
-        <form class="login_form" action="${loginVar}" method="POST">
-            <label class="inputLabel">email</label>
-            <input type="text" name="custom_username" class="input" placeholder="example@email.com" required >
-            <label class="inputLabel">password</label>
-            <input type="password" name="custom_password" class="input" placeholder="********" required>
-            <sec:csrfInput/>
-            <input type="submit" class="login_button" value="Login">
-        </form>
+    <form class="sign_up_form">
+        <label class="inputLabel">first name</label>
+        <input type="text" class="input" placeholder="John" required >
+        <label class="inputLabel">last name</label>
+        <input type="text" class="input" placeholder="Smith" required >
+        <label class="inputLabel">email</label>
+        <input type="text" class="input" placeholder="example@email.com" required >
+        <label class="inputLabel">password</label>
+        <input type="password" class="input" placeholder="********" required>
+        <input type="submit" class="create_account_button" value="Create Account">
+    </form>
 
-        <div class="line"></div>
+    <div class="line"></div>
 
-        <div class="footer_login">
-            <p>
-                Don't have an account?
-                <a class="sign_up" href="<spring:url value="/signup/"/>">Sing up now!</a>
-            </p>
+    <div class="footer_sign_up">
 
-            <p class="back_home">
-                GO BACK TO
-                <a class="home_page" href="<spring:url value="/"/>">Home Page!</a>
-            </p>
-        </div>
+        <p>
+            <a class="log_in" href="${contextPath}/login">I have an Account!</a>
+        </p>
+        <p class="back_home">
+            GO BACK TO
+            <a class="home_page" href="${contextPath}/">Home Page!</a>
+        </p>
+    </div>
 
-    </section>
+</section>
 
 </body>
 </html>
