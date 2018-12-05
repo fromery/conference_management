@@ -8,7 +8,10 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>CMS-Login</title>
+    <title>CMS</title>
+
+    <spring:url value="/resources/img/browser_tab_icon.ico" var="ico" />
+    <link href="${ico}" rel="shortcut icon" type="image/x-icon">
 
     <spring:url value="/resources/css/reset.css" var="resetCss" />
     <link href="${resetCss}" rel="stylesheet" />

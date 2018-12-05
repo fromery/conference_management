@@ -5,7 +5,10 @@
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-    <title>CMS-Home</title>
+    <title>CMS</title>
+
+    <spring:url value="/resources/img/browser_tab_icon.ico" var="ico" />
+    <link href="${ico}" rel="shortcut icon" type="image/x-icon">
 
     <spring:url value="/resources/css/reset.css" var="resetCss" />
     <link href="${resetCss}" rel="stylesheet" />
