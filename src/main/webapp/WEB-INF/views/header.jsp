@@ -8,7 +8,7 @@
 <section id="header">
 
     <div class="logo">
-        <img src="<c:url value="/resources/images/logo.jpg" />" alt="logo" />
+        <img src="<c:url value="/resources/img/logo.jpg" />" alt="logo" />
     </div>
 
     <ul class="menu">

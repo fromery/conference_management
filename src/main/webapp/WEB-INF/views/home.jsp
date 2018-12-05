@@ -29,7 +29,7 @@
     </p>
 
     <div class="homepage_pic">
-        <img src="<c:url value="/resources/images/home_page.jpg" />" alt="beautiful picture" />
+        <img src="<c:url value="/resources/img/home_page.jpg" />" alt="beautiful picture" />
     </div>
 
 </section>
