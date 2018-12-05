@@ -1,53 +1,14 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-<style>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-    #header {
-        width: 940px;
-        margin: 0px auto;
-        padding: 15px 0;
-        display: flex;
-        justify-content: space-between;
-    }
+<spring:url value="/resources/css/header.css" var="headerCss" />
 
-    .menu_item {
-        display: inline-block;
-        height: 38px;
-    }
-
-    .menu_item_link {
-        line-height: 38px;
-        height: 100%;
-        padding: 0 20px;
-        display: inline-block;
-
-        border: 1px solid transparent;
-        border-radius: 4px;
-
-        color: #fff;
-        text-decoration: none;
-        font-family: Open Sans, Arial, serif;
-        font-size: 16px;
-    }
-
-    #sign_up {
-        border-color: #ffffff;
-        border-radius: 4px;
-    }
-
-    .menu_item_link:hover,
-    .menu_item_link:focus {
-        color: #000;
-        background-color: #ffffff;
-        border: 1px solid transparent;
-    }
-
-</style>
+<link href="${headerCss}" rel="stylesheet" />
 
 <section id="header">
 
-    <div>
-        <%--TODO: Not loading logo--%>
-        <%--<img src="/resources/img/home_page.jpg">--%>
+    <div class="logo">
+        <img src="<c:url value="/resources/images/logo.jpg" />" alt="logo" />
     </div>
 
     <ul class="menu">

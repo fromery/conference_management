@@ -1,48 +1,17 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-         pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <title>CMS-Home</title>
 
-    <style>
+    <spring:url value="/resources/css/reset.css" var="resetCss" />
+    <link href="${resetCss}" rel="stylesheet" />
 
-        * {
-            padding: 0;
-            margin: 0;
-        }
-
-        html,
-        body {
-            height: 100%;
-            width: 100%;
-            background: radial-gradient(at center, #3e99b8, #53bee1);
-            position: relative;
-        }
-
-        .main_section_home {
-            width: 940px;
-            margin: 70px auto;
-        }
-
-        .title_home {
-            color: #ffffff;
-            text-align: center;
-            font-size: 48px;
-            font-family: Arial, sans-serif;
-        }
-
-        .tagline {
-            margin-top: 20px;
-            color: #ffffff;
-            text-align: center;
-            font-size: 20px;
-            font-family: Arial, sans-serif;
-        }
-
-    </style>
+    <spring:url value="/resources/css/home.css" var="homeCss" />
+    <link href="${homeCss}" rel="stylesheet" />
 
 </head>
 
@@ -59,8 +28,9 @@
         Stop the long searching for reports over the Internet! Start CMS app and find all them here!
     </p>
 
-    <%--TODO: Not loading img--%>
-    <%--<img src="../resources/img/home_page.jpg">--%>
+    <div class="homepage_pic">
+        <img src="<c:url value="/resources/images/home_page.jpg" />" alt="beautiful picture" />
+    </div>
 
 </section>
 

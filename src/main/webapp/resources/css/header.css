@@ -1,0 +1,48 @@
+#header {
+    width: 940px;
+    margin: 0px auto;
+    padding: 15px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu {
+    margin-top: 18px;
+}
+
+.menu_item {
+    display: inline-block;
+    height: 38px;
+}
+
+.menu_item_link {
+    line-height: 38px;
+    height: 100%;
+    padding: 0 20px;
+    display: inline-block;
+
+    border: 1px solid transparent;
+    border-radius: 4px;
+
+    color: #fff;
+    text-decoration: none;
+    font-family: Open Sans, Arial, serif;
+    font-size: 16px;
+}
+
+#sign_up {
+    border-color: #ffffff;
+    border-radius: 4px;
+}
+
+.menu_item_link:hover,
+.menu_item_link:focus {
+    color: #000;
+    background-color: #ffffff;
+    border: 1px solid transparent;
+}
+
+.logo img {
+    max-width: 71px;
+    border-radius: 100%;
+}
