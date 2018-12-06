@@ -27,6 +27,14 @@
             <p>
                 Welcome back!
             </p>
+
+            <c:if test="${param.logout != null }">
+                <p class="logout_message">You have successfully been logged out.</p>
+            </c:if>
+
+            <c:if test="${param.error != null }">
+                <p class="error_message">Invalid email/password combination.</p>
+            </c:if>
         </div>
 
         <div class="line"></div>
@@ -38,6 +46,7 @@
             <label class="inputLabel">password</label>
             <input type="password" name="custom_password" class="input" placeholder="********" required>
             <sec:csrfInput/>
+
             <input type="submit" class="login_button" value="Login">
         </form>
 

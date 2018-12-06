@@ -8,6 +8,7 @@
 
 .menu {
     margin-top: 18px;
+    display: flex;
 }
 
 .menu_item {
@@ -45,4 +46,93 @@
 .logo img {
     max-width: 71px;
     border-radius: 100%;
+}
+
+#logined_user_wrapper {
+    height: 40px;
+
+    background-color: #ffffff;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+
+    position: relative;
+}
+
+.user_ico_wrapper {
+    margin-left: 10px;
+}
+
+#logined_user_wrapper p {
+    margin-left: 10px;
+    color: #53bee1;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.user_ico {
+    max-height: 30px;
+    border-radius: 100%;
+    vertical-align: middle;
+}
+
+.arrow_ico {
+    max-height: 20px;
+    vertical-align: middle;
+    margin-right: 10px;
+    margin-top: 8px;
+}
+
+.account_submenu.show{
+    display: flex;
+}
+
+.account_submenu {
+    display: none;
+
+    flex-direction: column;
+
+    position: absolute;
+    right: 0;
+    top: 43px;
+    background: #ffffff;
+
+    width: 145px;
+    border-radius: 5px;
+}
+
+#edit_account {
+    border-bottom: 1px solid #53bee1;
+}
+
+.account_submenu li {
+    display: inline-block;
+    width: 100%;
+    height: 40px;
+}
+
+.account_submenu_link {
+
+    text-decoration: none;
+    color: #53bee1;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 35px;
+
+    display: block;
+    width: 100%;
+    line-height: 35px;
+    height: 100%;
+    padding-left: 10px;
+}
+
+.account_submenu_link:hover,
+.account_submenu_link:focus {
+
+   text-decoration: underline;
+}
+
+#logined_user_wrapper:hover {
+    background-color: #000000;
 }

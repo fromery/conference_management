@@ -6,7 +6,7 @@ body {
 
 .login_wrapper {
     width: 490px;
-    height: 370px;
+    height: 385px;
     margin: 100px auto;
     border-radius: 2%;
     background-color: #ffffff;
@@ -89,4 +89,14 @@ body {
 
 .home_page {
     text-decoration: none;
+}
+
+.error_message {
+    font-size: 14px;
+    color: #ff0000;
+}
+
+.logout_message {
+    font-size: 14px;
+    color: #048013;
 }
