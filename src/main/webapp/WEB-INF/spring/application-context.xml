@@ -9,5 +9,21 @@
 		http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa-1.8.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
 
+	<tx:annotation-driven/>
+
+	<jdbc:embedded-database id="datasource" type="H2">
+		<jdbc:script location="classpath:init.sql"/>
+	</jdbc:embedded-database>
+
+	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="dataSource" ref="datasource"/>
+		<property name="persistenceUnitName" value="cms"/>	<!--TODO: WHAT is it?-->
+	</bean>
+
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="entityManagerFactory"/>
+	</bean>
+
+	<jpa:repositories base-package="cm"/>
 
 </beans>

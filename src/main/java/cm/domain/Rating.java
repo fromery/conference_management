@@ -4,7 +4,7 @@ import lombok.Data;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
-/*TODO: Implement or needed? */
+/*TODO: Implement? */
 /*
 
 @Data

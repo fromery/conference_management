@@ -2,8 +2,13 @@ package cm.domain;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import org.springframework.data.annotation.CreatedBy;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedBy;
+import org.springframework.data.annotation.LastModifiedDate;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Data
 @EqualsAndHashCode(of = {"id"})
@@ -12,11 +17,9 @@ public abstract class AbstractEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
-    /*TODO: Implement*/
-    /*
-    @CreatedDate
+    /*@CreatedDate
     @Column(name = "created_at")
     private LocalDateTime createdAt;
 
@@ -30,7 +33,6 @@ public abstract class AbstractEntity {
 
     @LastModifiedBy
     @Column(name = "updated_by")
-    private String updatedBy;
-    */
+    private String updatedBy;*/
 
 }
