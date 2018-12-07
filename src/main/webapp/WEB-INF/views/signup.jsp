@@ -1,6 +1,11 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+         pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <title>CMS</title>
@@ -17,24 +22,37 @@
 </head>
 <body>
 
+<%--<csrf disabled="true"/>--%>
+
 <section class="sign_up_wrapper">
     <div class="sign_up_header">
-            <span>
-                Let's get started!
-            </span>
+
+        <span>
+            Let's get started!
+        </span>
     </div>
 
     <div class="line"></div>
 
-    <form class="sign_up_form">
+    <c:url value="/signup" var="signupVar"/>
+    <form class="sign_up_form" action="${signupVar}" method="POST">
+
+        <label class="inputLabel">username</label>
+        <input name="username" type="text" class="input" placeholder="johnsmith" required >
+
         <label class="inputLabel">first name</label>
-        <input type="text" class="input" placeholder="John" required >
+        <input name="firstName" type="text" class="input" placeholder="John" required >
+
         <label class="inputLabel">last name</label>
-        <input type="text" class="input" placeholder="Smith" required >
+        <input name="lastName" type="text" class="input" placeholder="Smith" required >
+
         <label class="inputLabel">email</label>
-        <input type="text" class="input" placeholder="example@email.com" required >
+        <input name="email" type="text" class="input" placeholder="example@email.com" required >
+
         <label class="inputLabel">password</label>
-        <input type="password" class="input" placeholder="********" required>
+        <input name="password" type="password" class="input" placeholder="********" required>
+        <sec:csrfInput/>
+
         <input type="submit" class="create_account_button" value="Create Account">
     </form>
 

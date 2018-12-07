@@ -45,7 +45,6 @@
 
                     </ul>
                 </li>
-
             </c:when>
             <c:otherwise>
                 <li class="menu_item"><a class="menu_item_link" href="<spring:url value="/login/"/>">Log In</a></li>
