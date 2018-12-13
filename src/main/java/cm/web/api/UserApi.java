@@ -50,5 +50,11 @@ public class UserApi {
 		model.addAttribute("user", user);
 		return "user";
 	}*/
-	
+
+	/*@RequestMapping("/top")
+	public String getTopUsers(@PathVariable("userId") Long userId, Model model){
+		User user = userRepository.findOne(userId);
+		model.addAttribute("user", user);
+		return "user";
+	}*/
 }
