@@ -13,7 +13,7 @@ many physically everything came to the Meeting. Implement notifying participants
  
  ![role permission imige](/src/main/webapp/resources/img/readmeRolePermissions.png)
  
-##Database design
+## Database design
 
 ![database imige](/src/main/webapp/resources/img/readme_database.png)
  
