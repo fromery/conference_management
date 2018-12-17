@@ -27,3 +27,5 @@ hs_err_pid*
 .idea/workspace.xml
 **/out
 **/target
+
+.DS_Store

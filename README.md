@@ -9,6 +9,14 @@ to view past / future reports. Every Speaker has rating, depending on the rating
 more bonuses. The Speaker may offer his report. Must be statistics registered people and how
 many physically everything came to the Meeting. Implement notifying participants of upcoming events.
  
+## Role permissions
+ 
+ ![role permission imige](/src/main/webapp/resources/img/readmeRolePermissions.png)
+ 
+##Database design
+
+![database imige](/src/main/webapp/resources/img/readme_database.png)
+ 
 ## Technologies:
     1. Java 8
     2. H2
@@ -28,4 +36,3 @@ To setup this project locally, use the following configuration:
         - `moderator / 123456`
         - `user / 123456`
     
-## Testing
