@@ -1,0 +1,4 @@
+drop schema conference_management;
+create schema conference_management;
+drop schema conference_management_test;
+create schema conference_management_test;

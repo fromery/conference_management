@@ -1,23 +1,6 @@
 package cm.domain;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-
-import javax.persistence.*;
-import java.util.Set;
-/*TODO: Implement?*/
-/*
-
-@Data
-@EqualsAndHashCode(callSuper = true)
-@Entity
-@Table(name = "role")
-public class Role extends AbstractEntity {
-
-    @NotEmpty
-    private String code;
-
-    @ManyToMany(mappedBy = "roles")
-    private Set<User> users;
+public enum Role {
+    ROLE_ANONYMOUS, ROLE_MODERATOR, ROLE_USER, ROLE_ADMIN
 }
-*/
+

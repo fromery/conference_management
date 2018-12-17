@@ -1,13 +1,12 @@
 package cm.web.api;
 
-import cm.domain.User;
-import cm.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+/**
+ * Api responsible for navigating to conference page and actions with conferences
+ */
 @Controller()
 @RequestMapping("/conferences")
 public class ConferenceApi {

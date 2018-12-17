@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+/**
+ * Api responsible for navigating to sign up, login and home pages
+ */
 @Controller
 @RequestMapping("/")
 public class HomeApi {
@@ -18,6 +21,12 @@ public class HomeApi {
 	@Autowired
 	private UserRepository repo;
 
+    /**
+     * Create user and redirect to home page
+     *
+     * @param user data model from UI
+     * @return "signup.jsp" page name
+     */
 	@RequestMapping(value="/signup", method=RequestMethod.POST)
 	public String signUp(@ModelAttribute User user){
 		user.setRole("ROLE_USER");
@@ -29,19 +38,33 @@ public class HomeApi {
 		return "redirect:/";
 	}
 
+    /**
+     * Shows sign up  page
+     *
+     * @return "signup.jsp" page name
+     */
 	@RequestMapping(value="/signup", method=RequestMethod.GET)
 	public String goSignUp(){
 		return "signup";
 	}
 
+    /**
+     * Shows home  page
+     *
+     * @return "home.jsp" page name
+     */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String goHome(){
 		return "home";
 	}
 
+    /**
+     * Shows login  page
+     *
+     * @return "login.jsp" page name
+     */
 	@RequestMapping(value = "/login", method=RequestMethod.GET)
 	public String goLogin(){
 		return "login";
 	}
-
 }

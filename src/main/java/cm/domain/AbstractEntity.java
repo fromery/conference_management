@@ -17,9 +17,9 @@ public abstract class AbstractEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
-    /*@CreatedDate
+    @CreatedDate
     @Column(name = "created_at")
     private LocalDateTime createdAt;
 
@@ -33,6 +33,5 @@ public abstract class AbstractEntity {
 
     @LastModifiedBy
     @Column(name = "updated_by")
-    private String updatedBy;*/
-
+    private String updatedBy;
 }

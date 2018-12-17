@@ -2,6 +2,7 @@ package cm.domain;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -15,23 +16,34 @@ import java.util.Collection;
 @Table(name = "user")
 public class User extends AbstractEntity implements UserDetails {
 
+    @NotEmpty
     @Column(name = "firstName")
     private String firstName;
 
+    @NotEmpty
     @Column(name = "lastName")
     private String lastName;
 
+    @NotEmpty
     @Column(name = "username")
     private String username;
 
+    @NotEmpty
     @Column(name = "password")
     private String password;
 
+    @NotEmpty
     @Column(name = "email")
     private String email;
 
+    @NotEmpty
     @Column(name = "role")
     private String role;
+
+    @OneToOne(fetch = FetchType.LAZY,
+            cascade =  CascadeType.ALL,
+            mappedBy = "user")
+    private Rating rating;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -67,9 +79,4 @@ public class User extends AbstractEntity implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
-
-    /*TODO: Implement*/
-    /*@Column(name = "rating_id")
-    private Integer rating_id;*/
-
 }

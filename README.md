@@ -1,4 +1,4 @@
-# conference_management
+# conference_management - pet project
 
 ##  Task: 
 
@@ -19,11 +19,13 @@ many physically everything came to the Meeting. Implement notifying participants
  
 ## Technologies:
     1. Java 8
-    2. H2
-    3. Lombok
-    4. Spring Security
-    5. Spring MVC
-    6. Spring JPA
+    2. MySQL 8
+    3. Liquibase
+    4. Lombok
+    5. Spring Security
+    6. Spring MVC
+    7. Spring 
+    8. Hibernate
 
 ## Initial Setup
 
@@ -31,8 +33,17 @@ To setup this project locally, use the following configuration:
 
 * Project Clone: `Clone project`
 * Database
-    * Credentials: 
-        - `admin / 123456`
-        - `moderator / 123456`
-        - `user / 123456`
+    * Change password for mysql user `root / 1234` - run `ALTER USER 'root'@'localhost' IDENTIFIED BY '1234';`
+    * Create schemas `conference_management`, `conference_management_test`     
+```
+        drop schema conference_management;
+        create schema conference_management;
+        drop schema conference_management_test;
+        create schema conference_management_test;
+```
+* Run maven plugin `liquidbase:update`
+* Credentials: 
+    - `admin / 123456`
+    - `moderator / 123456`
+    - `user / 123456`
     
