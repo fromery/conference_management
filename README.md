@@ -11,11 +11,11 @@ many physically everything came to the Meeting. Implement notifying participants
  
 ## Role permissions
  
- ![role permission imige](/src/main/webapp/resources/img/readmeRolePermissions.png)
+ ![role permission imige](/src/main/webapp/resources/info/readmeRolePermissions.png)
  
 ## Database design
 
-![database imige](/src/main/webapp/resources/img/readme_database.png)
+![database imige](/src/main/webapp/resources/info/readme_database.png)
  
 ## Technologies:
     1. Java 8
