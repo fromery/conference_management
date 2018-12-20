@@ -6,14 +6,14 @@
     	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
  		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd">
 
-<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+
 		<property name="dataSource" ref="dataSource"/>
 
 		<property name="packagesToScan" value="cm.domain" />
 
-		<!--<property name="configurationClass" value="org.hibernate.cfg.AnnotationConfiguration"/>-->
-
 		<property name="hibernateProperties" ref="hibernatePropertiesConfigurer"/>
+
 	</bean>
 
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
