@@ -1,6 +1,6 @@
 # conference_management - pet project
 
-##  Task: 
+##  Project Description: 
 
 Conference Management System. There are roles: Administrator, Speaker, Moderator and regular user.
 The Administrator can pin, suggest, change the subject of the report after the Speaker, 
@@ -17,15 +17,20 @@ many physically everything came to the Meeting. Implement notifying participants
 
 ![database imige](/src/main/webapp/resources/info/readme_database.png)
  
-## Technologies:
+## Back-end Technologies:
     1. Java 8
     2. MySQL 8
     3. Liquibase
     4. Lombok
     5. Spring Security
     6. Spring MVC
-    7. Spring 
+    7. Spring Data
     8. Hibernate
+
+## Front-end Technologies:
+    1. JSP
+    2. CSS
+    3. Javascript
 
 ## Initial Setup
 
