@@ -44,10 +44,10 @@ public class User extends AbstractEntity implements UserDetails {
     @Column(name = "role")
     private String role;
 
-    @OneToOne(fetch = FetchType.LAZY,
+    /*@OneToOne(fetch = FetchType.LAZY,
             cascade =  CascadeType.ALL,
             mappedBy = "user")
-    private Rating rating;
+    private Rating rating;*/
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

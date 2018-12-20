@@ -25,7 +25,7 @@
 		<security:logout logout-url="/logout" logout-success-url="/login?logout=true"/>
 
 		<security:intercept-url pattern="/users/*" access="ROLE_USER"/>
-		<security:intercept-url pattern="/**" access="ROLE_ANONYMOUS, ROLE_USER"/>
+		<security:intercept-url pattern="/**" access="ROLE_ANONYMOUS, ROLE_USER, ROLE_ADMIN"/>
 	</security:http>
 
 	<security:authentication-manager>
