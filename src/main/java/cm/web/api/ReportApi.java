@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/reports")
 public class ReportApi {
 
+	//TODO: Implementation
+
 	/*@Autowired
 	private UserRepository userRepository;*/
 	
@@ -26,7 +28,7 @@ public class ReportApi {
 	/*@ResponseBody
 	@RequestMapping(value="/save", method= RequestMethod.POST)
 	public List<User> saveUser(@ModelAttribute User user){
-		//TODO: Change Implementation
+
 		User newUser = new User();
 		newUser.setUsername("Username");
 		newUser.setPassword("123456");

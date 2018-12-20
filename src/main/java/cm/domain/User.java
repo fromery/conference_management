@@ -10,6 +10,10 @@ import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.*;
 import java.util.Collection;
 
+/**
+ * Entity bean with JPA annotations
+ * Hibernate provides JPA implementation
+ */
 @Data
 @EqualsAndHashCode(callSuper = true)
 @Entity

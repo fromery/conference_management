@@ -1,15 +1,18 @@
 package cm.domain;
 
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
 
+/**
+ * Entity bean with JPA annotations
+ * Hibernate provides JPA implementation
+ */
 @Data
 @Entity
 @Table(name = "rating")
-public class Rating  {
+public class Rating {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

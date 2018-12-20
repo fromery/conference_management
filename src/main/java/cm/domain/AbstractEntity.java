@@ -10,6 +10,10 @@ import org.springframework.data.annotation.LastModifiedDate;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
+/**
+ * Abstract base class with JPA annotations
+ * Hibernate provides JPA implementation
+ */
 @Data
 @EqualsAndHashCode(of = {"id"})
 @MappedSuperclass

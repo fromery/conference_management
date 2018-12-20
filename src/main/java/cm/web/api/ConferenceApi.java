@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping("/conferences")
 public class ConferenceApi {
 
+	//TODO: Implementation
+
 	/*@Autowired
 	private UserRepository userRepository;*/
 	
@@ -27,7 +29,6 @@ public class ConferenceApi {
 	/*@ResponseBody
 	@RequestMapping(value="/save", method= RequestMethod.POST)
 	public List<User> saveUser(@ModelAttribute User user){
-		//TODO: Change Implementation
 		User newUser = new User();
 		newUser.setUsername("Username");
 		newUser.setPassword("123456");

@@ -2,6 +2,7 @@ package cm.web.api;
 
 import cm.domain.User;
 import cm.repository.UserRepository;
+import cm.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -19,7 +20,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class HomeApi {
 
 	@Autowired
-	private UserRepository repo;
+	private UserService service;
 
     /**
      * Create user and redirect to home page
@@ -30,7 +31,7 @@ public class HomeApi {
 	@RequestMapping(value="/signup", method=RequestMethod.POST)
 	public String signUp(@ModelAttribute User user){
 		user.setRole("ROLE_USER");
-		repo.save(user);
+		service.save(user);
 
 		Authentication auth = new UsernamePasswordAuthenticationToken(user,
 				user.getPassword(), user.getAuthorities());
