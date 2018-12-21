@@ -1,6 +1,7 @@
 package cm.service;
 
 import cm.domain.Rating;
+
 import java.util.List;
 
 /**

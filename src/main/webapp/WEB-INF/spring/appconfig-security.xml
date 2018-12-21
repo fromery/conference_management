@@ -12,6 +12,9 @@
 	<bean class="org.springframework.security.web.access.expression.DefaultWebSecurityExpressionHandler"/>
 
 	<security:http auto-config="true" use-expressions="false">
+
+		<security:csrf disabled="true"/>
+
 		<security:form-login
 				login-page="/login"
 				login-processing-url="/login"

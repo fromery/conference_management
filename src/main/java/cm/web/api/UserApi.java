@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/users")
 public class UserApi {
 
-	//TODO: Implementation
+    //TODO: Implementation
 
 	/*@Autowired
 	private UserRepository userRepository;*/
@@ -20,10 +20,10 @@ public class UserApi {
 		return new User();
 	}*/
 
-	@RequestMapping(value="/", method= RequestMethod.GET)
-	public String getUsersPage(){
-		return "users";
-	}
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public String getUsersPage() {
+        return "users";
+    }
 
 	/*@ResponseBody
 	@RequestMapping(value="/save", method= RequestMethod.POST)

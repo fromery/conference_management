@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping("/conferences")
 public class ConferenceApi {
 
-	//TODO: Implementation
+    //TODO: Implementation
 
 	/*@Autowired
 	private UserRepository userRepository;*/
@@ -21,10 +21,10 @@ public class ConferenceApi {
 		return new User();
 	}*/
 
-	@RequestMapping(value="/", method= RequestMethod.GET)
-	public String getConferencePage(){
-		return "conferences";
-	}
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public String getConferencePage() {
+        return "conferences";
+    }
 
 	/*@ResponseBody
 	@RequestMapping(value="/save", method= RequestMethod.POST)
