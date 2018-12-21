@@ -16,26 +16,24 @@ import org.springframework.stereotype.Component;
 @Component("customAuthenticationProvider")
 public class CustomAuthenticationProvider implements AuthenticationProvider {
 
-	@Autowired
-	private UserRepository repo;
-	
-	@Override
-	public Authentication authenticate(Authentication authentication) throws AuthenticationException {
-		UsernamePasswordAuthenticationToken token = (UsernamePasswordAuthenticationToken) authentication;
-		User user = repo.findByUsername(token.getName());
+    @Autowired
+    private UserRepository repo;
 
-		System.out.println("CustomAuthenticationProvider" + user);
-		
-		if(!user.getPassword().equalsIgnoreCase(token.getCredentials().toString())){
-			throw new BadCredentialsException("The credentials are invalid");
-		}
-		
-		return new UsernamePasswordAuthenticationToken(user, user.getPassword(), user.getAuthorities());
-	}
+    @Override
+    public Authentication authenticate(Authentication authentication) throws AuthenticationException {
+        UsernamePasswordAuthenticationToken token = (UsernamePasswordAuthenticationToken) authentication;
+        User user = repo.findByUsername(token.getName());
 
-	@Override
-	public boolean supports(Class<?> authentication) {
-		return UsernamePasswordAuthenticationToken.class.equals(authentication);
-	}
+        if (user == null || !user.getPassword().equalsIgnoreCase(token.getCredentials().toString())) {
+            throw new BadCredentialsException("The credentials are invalid");
+        }
+
+        return new UsernamePasswordAuthenticationToken(user, user.getPassword(), user.getAuthorities());
+    }
+
+    @Override
+    public boolean supports(Class<?> authentication) {
+        return UsernamePasswordAuthenticationToken.class.equals(authentication);
+    }
 
 }

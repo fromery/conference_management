@@ -1,6 +1,4 @@
 
--- TODO: Нужно ли создавать с `rating_id` или Hibernate свяжет
-
 INSERT INTO `user` (`firstname`, `lastname`, `username`, `password`, `email`, `role`, `rating_id` )
 VALUES("ADMIN_firstname", "ADMIN_lastname", "admin", "123456", "admin@gmail.com", "ROLE_ADMIN", 1);
 

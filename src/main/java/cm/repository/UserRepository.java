@@ -7,10 +7,8 @@ import org.springframework.stereotype.Repository;
 /**
  * Repository for user model
  */
-
 public interface UserRepository extends JpaRepository<User, Integer> {
 
-    /*TODO: Needed here?*/
     /**
      *
      * @param username name of user that should be found
