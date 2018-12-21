@@ -1,7 +1,8 @@
 package cm.web.api;
 
+import cm.domain.Rating;
 import cm.domain.User;
-import cm.repository.UserRepository;
+import cm.service.RatingService;
 import cm.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -20,7 +21,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class HomeApi {
 
 	@Autowired
-	private UserService service;
+	private UserService userService;
+
+	@Autowired
+	private RatingService ratingService;
 
     /**
      * Create user and redirect to home page
@@ -30,8 +34,16 @@ public class HomeApi {
      */
 	@RequestMapping(value="/signup", method=RequestMethod.POST)
 	public String signUp(@ModelAttribute User user){
+
+		Rating rating = new Rating();
+		rating.setQuantityUsers(0);
+		rating.setQuantityStars(0);
+
+		//TODO: Проверить уникальность всех нужных полей пользователя через валидатор
+
 		user.setRole("ROLE_USER");
-		service.save(user);
+		user.setRating(ratingService.save(rating));
+		userService.save(user);
 
 		Authentication auth = new UsernamePasswordAuthenticationToken(user,
 				user.getPassword(), user.getAuthorities());

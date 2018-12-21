@@ -51,7 +51,7 @@
 
         <label class="inputLabel">password</label>
         <input name="password" type="password" class="input" placeholder="********" required>
-        <sec:csrfInput/>
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 
         <input type="submit" class="create_account_button" value="Create Account">
     </form>

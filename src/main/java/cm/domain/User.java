@@ -44,13 +44,10 @@ public class User extends AbstractEntity implements UserDetails {
     @Column(name = "role")
     private String role;
 
-  /*  @OneToOne(fetch = FetchType.LAZY,
-            cascade =  CascadeType.ALL,
-            mappedBy = "user")*/
-
-   /* @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "rating_id")
-    private Rating rating;*/
+    @OneToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "rating_id")
+    @MapsId
+    private Rating rating;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
