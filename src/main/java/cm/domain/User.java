@@ -44,11 +44,6 @@ public class User extends AbstractEntity implements UserDetails {
     @Column(name = "role")
     private String role;
 
-    @OneToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "rating_id")
-    @MapsId
-    private Rating rating;
-
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return AuthorityUtils.createAuthorityList(this.role);

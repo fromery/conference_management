@@ -23,7 +23,7 @@ public class Rating {
     @Column(name = "quantity_users")
     private Integer quantityUsers;
 
-    @OneToOne(mappedBy = "rating", cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY, optional = false)
+    @OneToOne( optional = false, orphanRemoval = true, fetch = FetchType.LAZY, cascade = CascadeType.ALL )
+    @JoinColumn(name = "user_id")
     private User user;
 }

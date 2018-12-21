@@ -5,19 +5,19 @@
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
 
     <changeSet id="001" author="saushkin.s">
-        <sqlFile path="create_table_rating.sql" splitStatements="true" stripComments="true" relativeToChangelogFile="true" />
-    </changeSet>
-
-    <changeSet id="002" author="saushkin.s">
-        <sqlFile path="insert_ratings.sql" splitStatements="true" stripComments="true" relativeToChangelogFile="true" />
-    </changeSet>
-
-    <changeSet id="003" author="saushkin.s">
         <sqlFile path="create_table_user.sql" splitStatements="true" stripComments="true" relativeToChangelogFile="true" />
     </changeSet>
 
-    <changeSet id="004" author="saushkin.s">
+    <changeSet id="002" author="saushkin.s">
         <sqlFile path="insert_users.sql" splitStatements="true" stripComments="true" relativeToChangelogFile="true" />
+    </changeSet>
+
+    <changeSet id="003" author="saushkin.s">
+        <sqlFile path="create_table_rating.sql" splitStatements="true" stripComments="true" relativeToChangelogFile="true" />
+    </changeSet>
+
+    <changeSet id="004" author="saushkin.s">
+        <sqlFile path="insert_ratings.sql" splitStatements="true" stripComments="true" relativeToChangelogFile="true" />
     </changeSet>
 
 </databaseChangeLog>

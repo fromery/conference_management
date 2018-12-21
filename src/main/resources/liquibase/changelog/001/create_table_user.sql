@@ -12,18 +12,11 @@ CREATE TABLE IF NOT EXISTS `user` (
   `password` VARCHAR(220) NOT NULL,
   `email` VARCHAR(220) NOT NULL,
   `role` VARCHAR(220) NOT NULL,
-  `rating_id` INT NOT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   `created_by` varchar(50) DEFAULT NULL,
   `updated_by` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `username_UNIQUE` (`username` ASC) VISIBLE,
-  UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE,
-  INDEX `fk_user_rating1_idx` (`rating_id` ASC) VISIBLE,
-  CONSTRAINT `fk_user_rating1`
-    FOREIGN KEY (`rating_id`)
-    REFERENCES `rating` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+  UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE)
 ENGINE = InnoDB;
