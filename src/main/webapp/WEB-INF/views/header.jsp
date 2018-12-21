@@ -40,7 +40,8 @@
                         <li><a id="logout" class="account_submenu_link" href="#">Logout</a></li>
 
                         <form id="logout-form" action="<c:url value="/logout"/>" method="post">
-                            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                            <%--<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>--%>
+                            <sec:csrfInput/>
                         </form>
 
                     </ul>

@@ -45,7 +45,7 @@
             <input type="text" name="custom_username" class="input" placeholder="example@email.com" required >
             <label class="inputLabel">password</label>
             <input type="password" name="custom_password" class="input" placeholder="********" required>
-            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+            <sec:csrfInput/>
 
             <input type="submit" class="login_button" value="Login">
         </form>

@@ -40,13 +40,12 @@ public class HomeApi {
         //TODO: Проверить уникальность всех нужных полей пользователя через валидатор
 
         user.setRole("ROLE_USER");
-        User createdUser = userService.save(user);
 
-        /*Rating rating = new Rating();
+        Rating rating = new Rating();
         rating.setQuantityUsers(0);
         rating.setQuantityStars(0);
         rating.setUser(userService.save(user));
-        ratingService.save(rating);*/
+        ratingService.save(rating);
 
         Authentication auth = new UsernamePasswordAuthenticationToken(user,
                 user.getPassword(), user.getAuthorities());
