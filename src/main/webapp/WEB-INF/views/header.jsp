@@ -15,7 +15,15 @@
 
     <ul class="menu">
         <li class="menu_item"><a class="menu_item_link" href="<spring:url value="/"/>">Home</a></li>
-        <li class="menu_item"><a class="menu_item_link" href="<spring:url value="/users/"/>">Users</a></li>
+
+        <sec:authorize access="isAnonymous()">
+            <li class="menu_item"><a class="menu_item_link" href="<spring:url value="/top_speakers/"/>">Top Speakers</a></li>   <%--TODO: Implement --%>
+        </sec:authorize>
+
+        <sec:authorize access="isAuthenticated()">
+            <li class="menu_item"><a class="menu_item_link" href="<spring:url value="/speakers/"/>">Speakers</a></li>   <%--TODO: Implement--%>
+        </sec:authorize>
+
         <li class="menu_item"><a class="menu_item_link" href="<spring:url value="/reports/"/>">Reports</a></li>
         <li class="menu_item"><a class="menu_item_link" href="<spring:url value="/conferences/"/>">Conferences</a></li>
 
@@ -40,7 +48,6 @@
                         <li><a id="logout" class="account_submenu_link" href="#">Logout</a></li>
 
                         <form id="logout-form" action="<c:url value="/logout"/>" method="post">
-                            <%--<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>--%>
                             <sec:csrfInput/>
                         </form>
 

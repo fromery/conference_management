@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.time.LocalDateTime;
+
 /**
  * Api responsible for navigating to sign up, login and home pages
  */
@@ -36,8 +38,9 @@ public class HomeApi {
         //TODO: Проверить уникальность всех нужных полей пользователя через валидатор
 
         user.setRole("ROLE_USER");
-
         user.setPassword(PasswordEncoder.encode(user.getPassword()));
+        user.setCreatedAt(LocalDateTime.now());
+        user.setCreatedBy(user.getUsername());
 
         userService.save(user);
 
