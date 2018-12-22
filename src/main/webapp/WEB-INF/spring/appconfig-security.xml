@@ -31,8 +31,12 @@
 
 	</security:http>
 
+	<bean id="passwordEncoder" class="org.springframework.security.crypto.password.StandardPasswordEncoder"/>
+
 	<security:authentication-manager>
-		<security:authentication-provider ref="customAuthenticationProvider"/>
+		<security:authentication-provider user-service-ref="customUserDetailsService" >
+			<security:password-encoder ref="passwordEncoder"/>
+		</security:authentication-provider>
 	</security:authentication-manager>
 
 </beans>

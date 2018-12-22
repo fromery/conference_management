@@ -1,9 +1,8 @@
 package cm.web.api;
 
-import cm.domain.Rating;
 import cm.domain.User;
-import cm.service.RatingService;
 import cm.service.UserService;
+import cm.web.security.PasswordEncoder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -24,9 +23,6 @@ public class HomeApi {
     @Autowired
     private UserService userService;
 
-    @Autowired
-    private RatingService ratingService;
-
     /**
      * Create user and redirect to home page
      *
@@ -41,11 +37,9 @@ public class HomeApi {
 
         user.setRole("ROLE_USER");
 
-        Rating rating = new Rating();
-        rating.setQuantityUsers(0);
-        rating.setQuantityStars(0);
-        rating.setUser(userService.save(user));
-        ratingService.save(rating);
+        user.setPassword(PasswordEncoder.encode(user.getPassword()));
+
+        userService.save(user);
 
         Authentication auth = new UsernamePasswordAuthenticationToken(user,
                 user.getPassword(), user.getAuthorities());
