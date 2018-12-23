@@ -20,7 +20,11 @@
             <li class="menu_item"><a class="menu_item_link" href="<spring:url value="/top_speakers/"/>">Top Speakers</a></li>   <%--TODO: Implement --%>
         </sec:authorize>
 
-        <sec:authorize access="isAuthenticated()">
+        <sec:authorize access="hasAuthority('ROLE_ADMIN')">
+            <li class="menu_item"><a class="menu_item_link" href="<spring:url value="/users/"/>">Users</a></li>   <%--TODO: Implement--%>
+        </sec:authorize>
+
+        <sec:authorize access="hasAnyRole('ROLE_USER', 'ROLE_MODERATOR')">
             <li class="menu_item"><a class="menu_item_link" href="<spring:url value="/speakers/"/>">Speakers</a></li>   <%--TODO: Implement--%>
         </sec:authorize>
 
