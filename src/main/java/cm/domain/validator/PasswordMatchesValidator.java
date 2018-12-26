@@ -1,11 +1,11 @@
 package cm.domain.validator;
 
-import cm.domain.User;
+import cm.web.dto.UserDto;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-public class PasswordMatchesValidator  implements ConstraintValidator<PasswordMatches, Object> {
+public class PasswordMatchesValidator implements ConstraintValidator<PasswordMatches, Object> {
 
     @Override
     public void initialize(PasswordMatches passwordMatches) {
@@ -14,7 +14,7 @@ public class PasswordMatchesValidator  implements ConstraintValidator<PasswordMa
 
     @Override
     public boolean isValid(Object o, ConstraintValidatorContext constraintValidatorContext) {
-        User user = (User) o;
-        return user.getPassword().equals(user.getMatchingPassword());
+        UserDto userDto = (UserDto) o;
+        return userDto.getPassword().equals(userDto.getMatchingPassword());
     }
 }

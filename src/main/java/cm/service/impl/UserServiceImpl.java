@@ -6,6 +6,7 @@ import cm.domain.validator.EmailExistsException;
 import cm.domain.validator.UsernameExistsException;
 import cm.repository.UserRepository;
 import cm.service.UserService;
+import cm.web.dto.UserDto;
 import cm.web.security.PasswordEncoder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.method.P;
@@ -57,24 +58,30 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User registerNewUserAccount(User account, Role role) throws EmailExistsException, UsernameExistsException {
+    public User registerNewUserAccount(UserDto userDto, Role role) throws EmailExistsException, UsernameExistsException {
 
         //TODO: Проверка на уникальность email проверить
-//        if (emailExist(account.getEmail())) {
-//            throw new EmailExistsException(
-//                    "There is an account with that email address:"  + account.getEmail());
-//        }
-        //TODO: Проверка на уникальность username проверить
+        if (emailExist(userDto.getEmail())) {
+            throw new EmailExistsException(
+                    "There is an account with that email address:"  + userDto.getEmail());
+        }
+       // TODO: Проверка на уникальность username проверить
 //        if(usernameExist(account.getUsername())){
 //            throw new UsernameExistsException(
 //                    "There is an account with that username:"  + account.getUsername());
 //        }
+        final User user = new User();
 
-        account.setRole(role.toString());
-        account.setPassword(PasswordEncoder.encode(account.getPassword()));
-        account.setCreatedBy(account.getUsername());
-        account.setCreatedAt(LocalDateTime.now());
-        return repository.save(account);
+        user.setFirstName(userDto.getFirstName());
+        user.setLastName(userDto.getLastName());
+        user.setEmail(userDto.getEmail());
+        user.setUsername(userDto.getUsername());
+        user.setPassword(PasswordEncoder.encode(userDto.getPassword()));
+        user.setRole(role.toString());
+        user.setCreatedBy(userDto.getUsername());
+        user.setCreatedAt(LocalDateTime.now());
+
+        return repository.save(user);
     }
 
     private boolean emailExist(String email) {

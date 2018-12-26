@@ -1,62 +1,41 @@
 package cm.domain;
 
-import cm.domain.validator.PasswordMatches;
-import cm.domain.validator.ValidEmail;
-import cm.domain.validator.ValidPassword;
-import cm.domain.validator.ValidUsername;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import java.util.Collection;
+import java.util.Objects;
 
 /**
  * Entity bean with JPA annotations
  * Hibernate provides JPA implementation
  */
-//@PasswordMatches(message = "{user.passwords.notmatch} //TODO:
 @Data
 @EqualsAndHashCode(callSuper = true)
 @Entity
 @Table(name = "user")
 public class User extends AbstractEntity implements UserDetails {
 
-    @NotNull
-    @Size(min = 1, message = "{user.firstname.empty}")
     @Column(name = "firstName")
     private String firstName;
 
-    @NotNull
-    @Size(min = 1, message = "{user.lastname.empty}")
     @Column(name = "lastName")
     private String lastName;
 
-    @NotNull
-    @ValidEmail(message = "{user.email.notvalid}")
     @Column(name = "email")
     private String email;
 
-    @NotNull
-    @ValidUsername(message = "{user.username.notvalid}")
     @Column(name = "username")
     private String username;
 
-    @NotNull
-    //@ValidPassword(message = "{user.password.notvalid}")
     @Column(name = "password")
     private String password;
 
-    @Transient
-    private String matchingPassword;
-
-    @NotEmpty(message = "{user.role.empty}")
     @Column(name = "role")
     private String role;
 
@@ -93,5 +72,34 @@ public class User extends AbstractEntity implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        User user = (User) o;
+        return Objects.equals(firstName, user.firstName) &&
+                Objects.equals(lastName, user.lastName) &&
+                Objects.equals(email, user.email) &&
+                Objects.equals(username, user.username) &&
+                Objects.equals(password, user.password) &&
+                Objects.equals(role, user.role);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), firstName, lastName, email, username, password, role);
+    }
+
+    @Override
+    public String toString() {
+
+        final StringBuilder builder = new StringBuilder();
+        builder.append("User [firstName=").append(firstName).append(", lastName=").append(lastName)
+                .append(", email=").append(email).append(", username=").append(", password=").append(password)
+                .append(", role=").append(role).append("]");
+        return builder.toString();
     }
 }

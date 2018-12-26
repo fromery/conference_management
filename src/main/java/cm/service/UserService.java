@@ -4,6 +4,7 @@ import cm.domain.Role;
 import cm.domain.User;
 import cm.domain.validator.EmailExistsException;
 import cm.domain.validator.UsernameExistsException;
+import cm.web.dto.UserDto;
 
 import java.util.List;
 
@@ -17,5 +18,5 @@ public interface UserService {
 
     void delete(int id);
 
-    User registerNewUserAccount(User accountDto, Role role) throws EmailExistsException, UsernameExistsException;
+    User registerNewUserAccount(UserDto userDto, Role role) throws EmailExistsException, UsernameExistsException;
 }

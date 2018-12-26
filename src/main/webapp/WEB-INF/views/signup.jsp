@@ -35,7 +35,7 @@
     <div class="line"></div>
 
     <c:url value="/signup" var="signupVar"/>
-    <form:form class="sign_up_form" action="${signupVar}" method="POST" modelAttribute="user">
+    <form:form class="sign_up_form" action="${signupVar}" method="POST" modelAttribute="userdto">
 
         <div class="input_wrapper">
             <div class="field_mes">
@@ -80,7 +80,7 @@
         <div class="input_wrapper">
             <div class="field_mes">
                 <label class="inputLabel">confirm password</label>
-                <form:errors path="matchingPassword" cssClass="error"/>
+                <%--<form:errors path="matchingPassword" cssClass="error"/>--%>
             </div>
             <form:password class="input" path="matchingPassword" placeholder="******" cssClass="input"  />
         </div>

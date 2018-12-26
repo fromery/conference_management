@@ -15,14 +15,14 @@ import org.springframework.stereotype.Component;
 @Component("customUserDetailsService")
 public class CustomUserDetailsService implements UserDetailsService {
 
-	@Autowired
-	private UserRepository repo;
-	
-	@Override
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		cm.domain.User user = repo.findByUsername(username);
+    @Autowired
+    private UserRepository repo;
 
-		return new User(user.getUsername(), user.getPassword(),
-				AuthorityUtils.createAuthorityList(user.getRole()));
-	}
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        cm.domain.User user = repo.findByUsername(username);
+
+        return new User(user.getUsername(), user.getPassword(),
+                AuthorityUtils.createAuthorityList(user.getRole()));
+    }
 }

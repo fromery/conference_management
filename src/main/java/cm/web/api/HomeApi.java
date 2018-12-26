@@ -5,6 +5,7 @@ import cm.domain.User;
 import cm.domain.validator.EmailExistsException;
 import cm.domain.validator.UsernameExistsException;
 import cm.service.UserService;
+import cm.web.dto.UserDto;
 import cm.web.security.PasswordEncoder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -42,49 +43,41 @@ public class HomeApi {
     /**
      * Create user and redirect to home page
      *
-     * @param user data model from UI
+     * @param userDto data model from UI
      * @return "signup.jsp" page name
      */
-    @Transactional
     @RequestMapping(value = "/signup", method = RequestMethod.POST)
-    public String signUp(@ModelAttribute("user") @Valid User user,
+    public String signUp(@ModelAttribute("userdto") @Valid UserDto userDto,
                          BindingResult result,
                          Model model) {
 
-        User registered = new User();
 
-        if (result.hasErrors()){
-            log.warning("Всегда заходит");
+        if (result.hasErrors()) {
             return "signup";
         }
 
+        User registered = new User();
+
         if (!result.hasErrors()) {
-            registered = createUserAccount(user, Role.ROLE_USER);
+
+            try {
+                userService.registerNewUserAccount(userDto, Role.ROLE_USER);
+            } catch (EmailExistsException e) {
+                result.rejectValue("email", "message.regError");
+                return "signup";
+            } catch (UsernameExistsException e) {
+                //result.rejectValue("email", "message.regError");
+                return "signup";
+            }
+
         }
 
-        //TODO: Зачем?
-        if (registered == null) {
-            result.rejectValue("email", "message.regError");
-        }
-
-
-        Authentication auth = new UsernamePasswordAuthenticationToken(user,
-                user.getPassword(), user.getAuthorities());
+        Authentication auth = new UsernamePasswordAuthenticationToken(registered,
+                registered.getPassword(), registered.getAuthorities());
         SecurityContextHolder.getContext().setAuthentication(auth);
         return "redirect:/";
     }
 
-    private User createUserAccount(User account, Role role) {
-        User registered = null;
-        try {
-            registered = userService.registerNewUserAccount(account, role);
-        } catch (EmailExistsException e) {
-            return null;
-        } catch (UsernameExistsException e) {
-            e.printStackTrace();
-        }
-        return registered;
-    }
 
     /**
      * Shows sign up  page
@@ -93,7 +86,7 @@ public class HomeApi {
      */
     @RequestMapping(value = "/signup", method = RequestMethod.GET)
     public String goSignUp(Model model) {
-        model.addAttribute("user", new User());
+        model.addAttribute("userdto", new UserDto());
         return "signup";
     }
 
