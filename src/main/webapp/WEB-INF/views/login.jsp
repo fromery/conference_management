@@ -41,8 +41,8 @@
 
         <c:url value="/login" var="loginVar"/>
         <form class="login_form" action="${loginVar}" method="POST">
-            <label class="inputLabel">email</label>
-            <input type="text" name="custom_username" class="input" placeholder="example@email.com" required >
+            <label class="inputLabel">username</label>
+            <input type="text" name="custom_username" class="input" placeholder="michaeljordan" required >
             <label class="inputLabel">password</label>
             <input type="password" name="custom_password" class="input" placeholder="********" required>
             <sec:csrfInput/>
@@ -55,7 +55,7 @@
         <div class="footer_login">
             <p>
                 Don't have an account?
-                <a class="sign_up" href="<spring:url value="/signup/"/>">Sing up now!</a>
+                <a class="login" href="<spring:url value="/signup/"/>">Sing up now!</a>
             </p>
 
             <p class="back_home">

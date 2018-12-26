@@ -4,6 +4,8 @@
 <%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://www.springframework.org/tags/form"
+           prefix="springForm"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,8 +24,6 @@
 </head>
 <body>
 
-<%--<csrf disabled="true"/>--%>
-
 <section class="sign_up_wrapper">
     <div class="sign_up_header">
 
@@ -35,37 +35,70 @@
     <div class="line"></div>
 
     <c:url value="/signup" var="signupVar"/>
-    <form class="sign_up_form" action="${signupVar}" method="POST">
+    <form:form class="sign_up_form" action="${signupVar}" method="POST" modelAttribute="user">
 
-        <label class="inputLabel">username</label>
-        <input name="username" type="text" class="input" placeholder="johnsmith" required >
+        <div class="input_wrapper">
+            <div class="field_mes">
+                <label class="inputLabel">first name</label>
+                <form:errors path="firstName" cssClass="error"/>
+            </div>
+            <form:input class="input" path="firstName" placeholder="John" cssClass="input"  />
+        </div>
 
-        <label class="inputLabel">first name</label>
-        <input name="firstName" type="text" class="input" placeholder="John" required >
+        <div class="input_wrapper">
+            <div class="field_mes">
+                <label class="inputLabel">last name</label>
+                <form:errors path="lastName" cssClass="error"/>
+            </div>
+            <form:input class="input" path="lastName" placeholder="Smith" cssClass="input"  />
+        </div>
 
-        <label class="inputLabel">last name</label>
-        <input name="lastName" type="text" class="input" placeholder="Smith" required >
+        <div class="input_wrapper">
+            <div class="field_mes">
+                <label class="inputLabel">email</label>
+                <form:errors path="email" cssClass="error"/>
+            </div>
+            <form:input class="input" path="email" placeholder="example@email.com" cssClass="input"  />
+        </div>
 
-        <label class="inputLabel">email</label>
-        <input name="email" type="text" class="input" placeholder="example@email.com" required >
+        <div class="input_wrapper">
+            <div class="field_mes">
+                <label class="inputLabel">username</label>
+                <form:errors path="username" cssClass="error"/>
+            </div>
+            <form:input class="input" path="username" placeholder="michaeljordan" cssClass="input"  />
+        </div>
 
-        <label class="inputLabel">password</label>
-        <input name="password" type="password" class="input" placeholder="********" required>
+        <div class="input_wrapper">
+            <div class="field_mes">
+                <label class="inputLabel">password</label>
+                <form:errors path="password" cssClass="error"/>
+            </div>
+            <form:password class="input" path="password" placeholder="******" cssClass="input"  />
+        </div>
+
+        <div class="input_wrapper">
+            <div class="field_mes">
+                <label class="inputLabel">confirm password</label>
+                <form:errors path="matchingPassword" cssClass="error"/>
+            </div>
+            <form:password class="input" path="matchingPassword" placeholder="******" cssClass="input"  />
+        </div>
+
         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-
         <input type="submit" class="create_account_button" value="Create Account">
-    </form>
+    </form:form>
 
     <div class="line"></div>
 
     <div class="footer_sign_up">
 
         <p>
-            <a class="log_in" href="${contextPath}/login">I have an Account!</a>
+            <a class="sign_up" href="<spring:url value="/login"/>">I have an Account!</a>
         </p>
         <p class="back_home">
             GO BACK TO
-            <a class="home_page" href="${contextPath}/">Home Page!</a>
+            <a class="home_page" href="<spring:url value="/"/>">Home Page!</a>
         </p>
     </div>
 

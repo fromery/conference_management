@@ -1,6 +1,7 @@
 package cm.domain;
 
 import lombok.Data;
+import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
 
@@ -17,12 +18,15 @@ public class Rating {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @NotEmpty
     @Column(name = "quantity_stars")
     private Integer quantityStars;
 
+    @NotEmpty
     @Column(name = "quantity_users")
     private Integer quantityUsers;
 
+    @NotEmpty
     @OneToOne(optional = false, orphanRemoval = true, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id")
     private User user;
