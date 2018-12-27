@@ -39,7 +39,7 @@
 
         <div class="input_wrapper">
             <div class="field_mes">
-                <label class="inputLabel">first name</label>
+                <label class="inputLabel">first name<sup class="sup">*</sup></label>
                 <form:errors path="firstName" cssClass="error"/>
             </div>
             <form:input class="input" path="firstName" placeholder="John" cssClass="input"  />
@@ -47,7 +47,7 @@
 
         <div class="input_wrapper">
             <div class="field_mes">
-                <label class="inputLabel">last name</label>
+                <label class="inputLabel">last name<sup class="sup">*</sup></label>
                 <form:errors path="lastName" cssClass="error"/>
             </div>
             <form:input class="input" path="lastName" placeholder="Smith" cssClass="input"  />
@@ -55,7 +55,7 @@
 
         <div class="input_wrapper">
             <div class="field_mes">
-                <label class="inputLabel">email</label>
+                <label class="inputLabel">email<sup class="sup">*</sup></label>
                 <form:errors path="email" cssClass="error"/>
             </div>
             <form:input class="input" path="email" placeholder="example@email.com" cssClass="input"  />
@@ -63,7 +63,7 @@
 
         <div class="input_wrapper">
             <div class="field_mes">
-                <label class="inputLabel">username</label>
+                <label class="inputLabel">username<sup class="sup">*</sup></label>
                 <form:errors path="username" cssClass="error"/>
             </div>
             <form:input class="input" path="username" placeholder="michaeljordan" cssClass="input"  />
@@ -71,7 +71,7 @@
 
         <div class="input_wrapper">
             <div class="field_mes">
-                <label class="inputLabel">password</label>
+                <label class="inputLabel">password<sup class="sup">*</sup></label>
                 <form:errors path="password" cssClass="error"/>
             </div>
             <form:password class="input" path="password" placeholder="******" cssClass="input"  />
@@ -79,8 +79,9 @@
 
         <div class="input_wrapper">
             <div class="field_mes">
-                <label class="inputLabel">confirm password</label>
-                <%--<form:errors path="matchingPassword" cssClass="error"/>--%>
+                <label class="inputLabel">confirm password<sup class="sup">*</sup></label>
+                <form:errors path="matchingPassword" cssClass="error"/>
+                <form:errors path="match" cssClass="error"/>
             </div>
             <form:password class="input" path="matchingPassword" placeholder="******" cssClass="input"  />
         </div>

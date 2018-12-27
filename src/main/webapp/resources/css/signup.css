@@ -118,3 +118,8 @@ body {
 .home_page {
     text-decoration: none;
 }
+
+sup {
+    vertical-align: super;
+    font-size: smaller;
+}

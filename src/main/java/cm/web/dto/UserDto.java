@@ -1,19 +1,17 @@
 package cm.web.dto;
 
-import cm.domain.validator.PasswordMatches;
-import cm.domain.validator.ValidEmail;
-import cm.domain.validator.ValidPassword;
-import cm.domain.validator.ValidUsername;
+import cm.domain.validator.*;
 import lombok.Data;
 import org.hibernate.validator.constraints.NotEmpty;
 
+import javax.persistence.Transient;
+import javax.validation.constraints.AssertTrue;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 /**
- * DTO for user entity
+ * DTO for user entity with validation
  */
-//@PasswordMatches/*(message = "{user.passwords.notmatch}")*/
 @Data
 public class UserDto {
 
@@ -36,8 +34,18 @@ public class UserDto {
     @ValidPassword(message = "{user.password.notvalid}")
     private String password;
 
-    @NotNull
+    @ValidPassword(message = "{user.password.notvalid}")
     private String matchingPassword;
+
+    @Transient
+    @AssertTrue(message = "{user.matchingpassword.nonmatch}")
+    private boolean match;
+
+    @AssertTrue
+    private boolean isValid() {
+        match = this.password.equals(this.matchingPassword);
+        return match;
+    }
 
     @NotEmpty(message = "{user.role.empty}")
     private String role;
