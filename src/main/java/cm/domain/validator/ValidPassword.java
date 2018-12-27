@@ -9,6 +9,7 @@ import java.lang.annotation.*;
 @Constraint(validatedBy = PasswordValidator.class)
 @Documented
 public @interface ValidPassword {
+
     String message() default "Invalid password";
 
     Class<?>[] groups() default {};

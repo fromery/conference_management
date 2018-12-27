@@ -7,15 +7,13 @@ import cm.domain.validator.ValidUsername;
 import lombok.Data;
 import org.hibernate.validator.constraints.NotEmpty;
 
-import javax.persistence.Column;
-import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 /**
  * DTO for user entity
  */
-//@PasswordMatches(message = "{user.passwords.notmatch}")
+//@PasswordMatches/*(message = "{user.passwords.notmatch}")*/
 @Data
 public class UserDto {
 
@@ -38,9 +36,9 @@ public class UserDto {
     @ValidPassword(message = "{user.password.notvalid}")
     private String password;
 
+    @NotNull
     private String matchingPassword;
 
-    //@NotEmpty(message = "{user.role.empty}")
-    @Column(name = "role")
+    @NotEmpty(message = "{user.role.empty}")
     private String role;
 }

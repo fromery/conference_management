@@ -9,6 +9,7 @@ import java.lang.annotation.*;
 @Constraint(validatedBy = UsernameValidator.class)
 @Documented
 public @interface ValidUsername {
+
     String message() default "Invalid username";
 
     Class<?>[] groups() default {};

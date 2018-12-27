@@ -85,6 +85,8 @@
             <form:password class="input" path="matchingPassword" placeholder="******" cssClass="input"  />
         </div>
 
+        <form:input path="role" type="hidden" value="ROLE_USER"/>
+
         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
         <input type="submit" class="create_account_button" value="Create Account">
     </form:form>

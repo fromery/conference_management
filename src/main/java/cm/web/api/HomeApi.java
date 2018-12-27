@@ -36,7 +36,6 @@ public class HomeApi {
 
     private static Logger log = Logger.getLogger(HomeApi.class.getName());
 
-
     @Autowired
     private UserService userService;
 
@@ -51,7 +50,6 @@ public class HomeApi {
                          BindingResult result,
                          Model model) {
 
-
         if (result.hasErrors()) {
             return "signup";
         }
@@ -61,9 +59,9 @@ public class HomeApi {
         if (!result.hasErrors()) {
 
             try {
-                userService.registerNewUserAccount(userDto, Role.ROLE_USER);
+                registered = userService.registerNewUserAccount(userDto, Role.ROLE_USER);
             } catch (EmailExistsException e) {
-                result.rejectValue("email", "message.regError");
+                //result.rejectValue("email", "message.regError");
                 return "signup";
             } catch (UsernameExistsException e) {
                 //result.rejectValue("email", "message.regError");
@@ -77,7 +75,6 @@ public class HomeApi {
         SecurityContextHolder.getContext().setAuthentication(auth);
         return "redirect:/";
     }
-
 
     /**
      * Shows sign up  page
