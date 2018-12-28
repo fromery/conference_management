@@ -22,9 +22,9 @@ many physically everything came to the Meeting. Implement notifying participants
     2. MySQL 8
     3. Liquibase
     4. Lombok
-    5. Spring Security(xml configuration)
-    6. Spring MVC(xml configuration)
-    7. Spring Data(xml configuration)
+    5. Spring Security (xml configuration)
+    6. Spring MVC (xml configuration)
+    7. Spring Data (xml configuration)
     8. Hibernate
 
 ## Front-end Technologies:
