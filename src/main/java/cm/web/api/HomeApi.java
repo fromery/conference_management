@@ -47,8 +47,7 @@ public class HomeApi {
      */
     @RequestMapping(value = "/signup", method = RequestMethod.POST)
     public String signUp(@ModelAttribute("userdto") @Valid UserDto userDto,
-                         BindingResult result,
-                         Model model) {
+                         BindingResult result) {
 
         if (result.hasErrors()) {
             return "signup";
@@ -61,13 +60,14 @@ public class HomeApi {
             try {
                 registered = userService.registerNewUserAccount(userDto, Role.ROLE_USER);
             } catch (EmailExistsException e) {
-                //result.rejectValue("email", "message.regError");
+                result.rejectValue("email", "user.email.already.exists",
+                        "Account for that email already exists. Please enter a different email."); //TODO: user.email.alreadyexists doesn't see bundle
                 return "signup";
             } catch (UsernameExistsException e) {
-                //result.rejectValue("email", "message.regError");
+                result.rejectValue("username", "user.username.already.exists",
+                        "Account for that username already exists. Please enter a different email.");//TODO: user.email.alreadyexists doesn't see bundle
                 return "signup";
             }
-
         }
 
         Authentication auth = new UsernamePasswordAuthenticationToken(registered,

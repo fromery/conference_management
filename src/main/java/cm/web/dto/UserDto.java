@@ -16,29 +16,34 @@ import javax.validation.constraints.Size;
 public class UserDto {
 
     @NotNull
-    @Size(min = 1, message = "{user.firstname.empty}")
+    @Size(min = 1, message = "{user.field.empty}")
+    @ValidOnlyCharactersFirstLetterCapital(
+            message = "{user.field.only.characters.first.letter.capital}")
     private String firstName;
 
     @NotNull
-    @Size(min = 1, message = "{user.lastname.empty}")
+    @Size(min = 1, message = "{user.field.empty}")
+    @ValidOnlyCharactersFirstLetterCapital(
+            message = "{user.field.only.characters.first.letter.capital}")
     private String lastName;
 
     @NotNull
-    @ValidEmail(message = "{user.email.notvalid}")
+    @Size(min = 1, message = "{user.field.empty}")
+    @ValidEmail(message = "{user.email.not.valid}")
     private String email;
 
     @NotNull
-    @ValidUsername(message = "{user.username.notvalid}")
+    @ValidUsername(message = "{user.username.not.valid}")
     private String username;
 
-    @ValidPassword(message = "{user.password.notvalid}")
+    @ValidPassword(message = "{user.password.not.valid}")
     private String password;
 
-    @ValidPassword(message = "{user.password.notvalid}")
+    @ValidPassword(message = "{user.password.not.valid}")
     private String matchingPassword;
 
     @Transient
-    @AssertTrue(message = "{user.matchingpassword.nonmatch}")
+    @AssertTrue(message = "{user.matching.password.no.match}")
     private boolean match;
 
     @AssertTrue

@@ -9,15 +9,17 @@ import cm.service.UserService;
 import cm.web.dto.UserDto;
 import cm.web.security.PasswordEncoder;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.method.P;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
-import java.util.Arrays;
+
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * Implementation of service for User entity
+ */
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -60,16 +62,14 @@ public class UserServiceImpl implements UserService {
     @Override
     public User registerNewUserAccount(UserDto userDto, Role role) throws EmailExistsException, UsernameExistsException {
 
-        //TODO: Проверка на уникальность email проверить
         if (emailExist(userDto.getEmail())) {
             throw new EmailExistsException(
-                    "There is an account with that email address:"  + userDto.getEmail());
+                    "There is an account with that email address:" + userDto.getEmail());
         }
-       // TODO: Проверка на уникальность username проверить
-//        if(usernameExist(account.getUsername())){
-//            throw new UsernameExistsException(
-//                    "There is an account with that username:"  + account.getUsername());
-//        }
+        if (usernameExist(userDto.getUsername())) {
+            throw new UsernameExistsException(
+                    "There is an account with that username:" + userDto.getUsername());
+        }
         final User user = new User();
 
         user.setFirstName(userDto.getFirstName());

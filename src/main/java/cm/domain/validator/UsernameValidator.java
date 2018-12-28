@@ -5,10 +5,13 @@ import javax.validation.ConstraintValidatorContext;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * Implementation of custom validator for fields with first letter capital and only characters
+ */
 public class UsernameValidator implements ConstraintValidator<ValidUsername, String> {
     private Pattern pattern;
     private Matcher matcher;
-    private static final String USERNAME_PATTERN = ".{6,10}";
+    private static final String USERNAME_PATTERN = ".{4,20}";
 
     @Override
     public void initialize(ValidUsername validUsername) {

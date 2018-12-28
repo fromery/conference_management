@@ -10,6 +10,9 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * Implementation of service for Rating entity
+ */
 @Service
 public class RatingServiceImpl implements RatingService {
 

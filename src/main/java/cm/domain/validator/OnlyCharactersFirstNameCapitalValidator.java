@@ -6,15 +6,15 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Implementation of custom validator for password
+ * Implementation of custom validator for fields with first letter capital and only characters
  */
-public class PasswordValidator implements ConstraintValidator<ValidPassword, String> {
+public class OnlyCharactersFirstNameCapitalValidator implements ConstraintValidator<ValidOnlyCharactersFirstLetterCapital, String> {
     private Pattern pattern;
     private Matcher matcher;
-    private static final String USERNAME_PATTERN = ".{6,10}";
+    private static final String USERNAME_PATTERN = "^([A-Z][a-z]+)";
 
     @Override
-    public void initialize(ValidPassword validPassword) {
+    public void initialize(ValidOnlyCharactersFirstLetterCapital validOnlyCharactersFirstNameCapital) {
 
     }
 
@@ -28,4 +28,5 @@ public class PasswordValidator implements ConstraintValidator<ValidPassword, Str
         matcher = pattern.matcher(username);
         return matcher.matches();
     }
+
 }
