@@ -22,15 +22,16 @@ many physically everything came to the Meeting. Implement notifying participants
     2. MySQL 8
     3. Liquibase
     4. Lombok
-    5. Spring Security
-    6. Spring MVC
-    7. Spring Data
+    5. Spring Security(xml configuration)
+    6. Spring MVC(xml configuration)
+    7. Spring Data(xml configuration)
     8. Hibernate
 
 ## Front-end Technologies:
     1. JSP
-    2. CSS
-    3. Javascript
+    2. HTML
+    3. CSS
+    4. Javascript
 
 ## Initial Setup
 

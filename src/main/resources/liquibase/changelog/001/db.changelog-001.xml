@@ -16,8 +16,4 @@
         <sqlFile path="create_table_rating.sql" splitStatements="true" stripComments="true" relativeToChangelogFile="true" />
     </changeSet>
 
-    <changeSet id="004" author="saushkin.s">
-        <sqlFile path="insert_ratings.sql" splitStatements="true" stripComments="true" relativeToChangelogFile="true" />
-    </changeSet>
-
 </databaseChangeLog>
