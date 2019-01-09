@@ -8,5 +8,13 @@ body {
 
 .main_section_home {
     width: 940px;
-    margin: 70px auto;
+    margin: 0px auto;
+    background: #ffffff;
+    border-radius: 4px;
+}
+
+#reports{
+    color: #000;
+    background-color: #ffffff;
+    border: 1px solid transparent;
 }

@@ -21,15 +21,15 @@
 
 <body>
 
-<jsp:include page="header.jsp" />
+    <jsp:include page="header.jsp" />
 
-<section class="main_section_home">
+    <section class="main_section_home">
 
-    Conferences
+        Conferences
 
-</section>
+    </section>
 
-<jsp:include page="footer.jsp" />
+    <jsp:include page="footer.jsp" />
 
 </body>
 </html>

@@ -20,24 +20,24 @@
 
 <body>
 
-<jsp:include page="header.jsp" />
+    <jsp:include page="header.jsp" />
 
-<section class="main_section_home">
-    <p class="title_home">
-        Conference Management System
-    </p>
+    <section class="main_section_home">
+        <p class="title_home">
+            Conference Management System
+        </p>
 
-    <p class="tagline">
-        Stop the long searching for reports over the Internet! Start CMS app and find all them here!
-    </p>
+        <p class="tagline">
+            Stop the long searching for reports over the Internet! Start CMS app and find all them here!
+        </p>
 
-    <div class="homepage_pic">
-        <img src="<c:url value="/resources/img/home_page.jpg" />" alt="beautiful picture" />
-    </div>
+        <div class="homepage_pic">
+            <img src="<c:url value="/resources/img/home_page.jpg" />" alt="beautiful picture" />
+        </div>
 
-</section>
+    </section>
 
-<jsp:include page="footer.jsp" />
+    <jsp:include page="footer.jsp" />
 
 </body>
 </html>

@@ -14,22 +14,22 @@
     </div>
 
     <ul class="menu">
-        <li class="menu_item"><a class="menu_item_link" href="<spring:url value="/"/>">Home</a></li>
+        <li class="menu_item"><a id="home" class="menu_item_link" href="<spring:url value="/"/>">Home</a></li>
 
-        <sec:authorize access="isAnonymous()">
-            <li class="menu_item"><a class="menu_item_link" href="<spring:url value="/top_speakers/"/>">Top Speakers</a></li>   <%--TODO: Implement --%>
+        <sec:authorize access="isAnonymous()">  <%--TODO: Выделить --%>
+            <li class="menu_item"><a id="topSpeakers" class="menu_item_link" href="<spring:url value="/top_speakers/"/>">Top Speakers</a></li>   <%--TODO: Implement --%>
         </sec:authorize>
 
         <sec:authorize access="hasAuthority('ROLE_ADMIN')">
-            <li class="menu_item"><a class="menu_item_link" href="<spring:url value="/users/"/>">Users</a></li>   <%--TODO: Implement--%>
+            <li class="menu_item"><a id="users" class="menu_item_link" href="<spring:url value="/users/"/>">Users</a></li>   <%--TODO: Implement--%>
         </sec:authorize>
 
-        <sec:authorize access="hasAnyRole('ROLE_USER', 'ROLE_MODERATOR')">
-            <li class="menu_item"><a class="menu_item_link" href="<spring:url value="/speakers/"/>">Speakers</a></li>   <%--TODO: Implement--%>
+        <sec:authorize access="hasAnyRole('ROLE_USER', 'ROLE_MODERATOR')">  <%--TODO: Выделить --%>
+            <li class="menu_item"><a id="speakers" class="menu_item_link" href="<spring:url value="/speakers/"/>">Speakers</a></li>   <%--TODO: Implement--%>
         </sec:authorize>
 
-        <li class="menu_item"><a class="menu_item_link" href="<spring:url value="/reports/"/>">Reports</a></li>
-        <li class="menu_item"><a class="menu_item_link" href="<spring:url value="/conferences/"/>">Conferences</a></li>
+        <li class="menu_item"><a id="reports" class="menu_item_link" href="<spring:url value="/reports/"/>">Reports</a></li>
+        <li class="menu_item"><a id="conferences" class="menu_item_link" href="<spring:url value="/conferences/"/>">Conferences</a></li>
 
         <sec:authorize access="authenticated" var="authenticated"/>
         <c:choose>

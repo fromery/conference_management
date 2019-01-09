@@ -13,5 +13,26 @@ body {
 
 .main_section_home {
     width: 940px;
-    margin: 70px auto;
+    margin: 0px auto;
+    background: #ffffff;
+    border-radius: 4px;
+    min-height: 615px;
+}
+
+#users {
+    position: relative;
+    color: #000;
+    background-color: #ffffff;
+    border: 1px solid transparent;
+}
+
+#users:after {
+    content: " ";
+    position: absolute;
+    width: calc(100% + 2px);
+    height: calc(100% + 2px);
+    left: 50%;
+    bottom: calc(-1 * (100% + -6px));
+    transform: translateX(-50%);
+    background-color: #ffffff;
 }

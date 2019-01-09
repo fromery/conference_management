@@ -21,15 +21,31 @@
 
 <body>
 
-<jsp:include page="header.jsp" />
+    <jsp:include page="header.jsp" />
 
-<section class="main_section_home">
+    <section class="main_section_home">
 
-    Users
+        <table id="user-table" class="table">
+            <thead>
+                <tr>
+                    <th>First name</th>
+                    <th>Last name</th>
+                    <th>Email</th>
+                    <th>Username</th>
+                    <th>Password</th>
+                    <th>Role</th>
+                </tr>
+            </thead>
+            <tbody>
+               <%-- <tr>
+                    <td>There are currently no appointments scheduled.</td>
+                </tr>--%>
+            </tbody>
+        </table>
 
-</section>
+    </section>
 
-<jsp:include page="footer.jsp" />
+    <jsp:include page="footer.jsp" />
 
 </body>
 </html>
