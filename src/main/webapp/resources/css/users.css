@@ -12,8 +12,9 @@ body {
 }
 
 .main_section_home {
-    width: 940px;
+    width: 930px;
     margin: 0px auto;
+    padding: 5px;
     background: #ffffff;
     border-radius: 4px;
     min-height: 615px;
@@ -30,9 +31,24 @@ body {
     content: " ";
     position: absolute;
     width: calc(100% + 2px);
-    height: calc(100% + 2px);
+    height: calc(100% + -4px);
     left: 50%;
     bottom: calc(-1 * (100% + -6px));
     transform: translateX(-50%);
     background-color: #ffffff;
+}
+
+.table {
+    width: 100%;
+    margin-top: 10px;
+}
+
+thead {
+    font-weight: bold;
+    border-bottom: 2px solid #808080;
+    font-family: Open Sans, Arial, serif;
+}
+
+tbody tr{
+    border-top: 1px solid #808080;
 }

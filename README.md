@@ -32,6 +32,7 @@ many physically everything came to the Meeting. Implement notifying participants
     2. HTML
     3. CSS
     4. Javascript
+    5. jQuery
 
 ## Initial Setup
 

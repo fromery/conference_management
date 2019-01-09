@@ -15,12 +15,8 @@ import java.util.List;
 @RequestMapping("/users")
 public class UserApi {
 
-    //TODO: Implementation
-
 	@Autowired
 	private UserRepository userRepository;
-	
-
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String getUsersPage() {

@@ -28,8 +28,9 @@
             <li class="menu_item"><a id="speakers" class="menu_item_link" href="<spring:url value="/speakers/"/>">Speakers</a></li>   <%--TODO: Implement--%>
         </sec:authorize>
 
-        <li class="menu_item"><a id="reports" class="menu_item_link" href="<spring:url value="/reports/"/>">Reports</a></li>
         <li class="menu_item"><a id="conferences" class="menu_item_link" href="<spring:url value="/conferences/"/>">Conferences</a></li>
+
+        <li class="menu_item"><a id="reports" class="menu_item_link" href="<spring:url value="/reports/"/>">Reports</a></li>
 
         <sec:authorize access="authenticated" var="authenticated"/>
         <c:choose>
