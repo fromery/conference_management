@@ -35,44 +35,47 @@
 <jsp:include page="header.jsp"/>
 
 <section class="main_section_home">
-
-    <div>
-
-<%--
-        <div>
+    <div class="wrapper">
+        <div class="create_wrapper">
+            <img class="plus_ico" src="<c:url value="/resources/img/plus.jpg"/>" alt="plus_ico"/>
             <span>
-                 <img class="search_ico" src="<c:url value="/resources/img/search.jpg" />" alt="user_ico" />
-            </span>
-            <form:input class="input" path="" placeholder="Search" cssClass="input"  />
+                   Create User
+               </span>
         </div>
---%>
 
-    <%--
-       <button id="create_user" type="button">
-            <img class="plus_ico" src="<c:url value="/resources/img/plus.jpg"/>" alt="plus_ico" />
-            <span>
-                Create User
-            </span>
-        </button>
---%>
+        <div class="search_wrapper">
+            <img class="search_ico" src="<c:url value="/resources/img/search.jpg" />" alt="user_ico"/>
 
+            <input class="search_input" type="text" placeholder="Search" cssClass="input">
+        </div>
     </div>
 
-    <table id="user-table" class="table">
-        <thead>
-            <tr>
-                <th>First name</th>
-                <th>Last name</th>
-                <th>Email</th>
-                <th>Role</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            <%-- <tr>
-                 <td>There are currently no users scheduled.</td>
-             </tr>--%>
-        </tbody>
+    <table class="table_wrapper">
+        <tr>
+            <td>
+                <table class="header_table">
+                    <thead>
+                    <th id="header_firstname">First name</th>
+                    <th id="header_lastname">Last name</th>
+                    <th id="header_role">Role</th>
+                    <th id="header_actions">Actions</th>
+                    </thead>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="content_users">
+
+                    <table id="user-table" class="table">
+                        <tbody>
+
+                        </tbody>
+                    </table>
+
+                </div>
+            </td>
+        </tr>
     </table>
 
 </section>

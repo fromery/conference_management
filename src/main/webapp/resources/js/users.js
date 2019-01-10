@@ -35,9 +35,15 @@ Page.prototype.createRowHtml = function (row) {
     var $row = $("<tr/>");
     var $firstnameCell = $("<td/>").text(row.firstName);
     var $lastnameCell = $("<td/>").text(row.lastName);
-    var $emailCell = $("<td/>").text(row.email);
     var $roleCell = $("<td/>").text(row.role);
 
-    $row.append($firstnameCell, $lastnameCell, $emailCell, $roleCell);
+    var $actions = $("<td/>").attr("class", "actions");
+    var $viewLink = $("<a/>").attr("href", root + "/users/view/" + row.id).attr("class", "viewLink").text("View");
+    var $updateLink = $("<a/>").attr("href", root + "/users/update/" + row.id).attr("class", "updateLink").text("Update");
+    var $deleteLink = $("<a/>").attr("href", root + "/users/delete/" + row.id).attr("class", "deleteLink").text("Delete");
+
+    $actions.append($viewLink).append($updateLink).append($deleteLink);
+
+    $row.append($firstnameCell, $lastnameCell, $roleCell, $actions);
     return $row;
 };

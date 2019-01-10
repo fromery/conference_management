@@ -17,7 +17,7 @@ body {
     padding: 5px;
     background: #ffffff;
     border-radius: 4px;
-    min-height: 615px;
+    min-height: 635px;
 }
 
 #users {
@@ -38,17 +38,136 @@ body {
     background-color: #ffffff;
 }
 
-.table {
+.table_wrapper {
     width: 100%;
     margin-top: 10px;
+    height: 200px;
+    border: 2px solid #3e99b8;
 }
 
-thead {
+.table_wrapper thead {
     font-weight: bold;
+    border-top: 2px solid #808080;
     border-bottom: 2px solid #808080;
     font-family: Open Sans, Arial, serif;
+    width: 100%;
 }
 
-tbody tr{
+.content_users {
+    height: 550px;
+    overflow: auto;
+}
+
+#user-table {
+    width: 100%;
+}
+
+#user-table tbody tr {
     border-top: 1px solid #808080;
+}
+
+tbody tr td {
+    padding: 5px;
+    font-size: 16px;
+}
+
+.viewLink {
+    padding: 0 5px;
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #808080;
+    border-radius: 7px;
+}
+
+.updateLink {
+    padding: 0 5px;
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #008000;
+    border-radius: 7px;
+}
+
+.deleteLink {
+    padding: 0 5px;
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #FF0000;
+    border-radius: 7px;
+}
+
+tbody tr td a {
+    padding: 5px;
+}
+
+.header_table {
+    width: 100%;
+}
+
+.actions {
+    display: flex;
+    justify-content: space-around;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: space-around;
+}
+
+.search_ico {
+    height: 24px;
+    z-index: 1;
+    margin-top: 4px;
+}
+
+.search_input {
+    height: 27px;
+    width: 180px;
+    border: 2px solid #3e99b8;
+    border-radius: 20px;
+    text-indent: 35px;
+    font-size: 15px;
+    outline: none;
+    margin-left: -33px;
+}
+
+.search_wrapper {
+    display: flex;
+}
+
+.create_wrapper {
+    width: 120px;
+    display: flex;
+    border: 2px solid #3e99b8;
+    border-radius: 20px;
+    outline: none;
+    cursor: pointer;
+}
+
+.plus_ico {
+    height: 24px;
+    margin-left: 8px;
+    margin-top: 2px;
+}
+
+.create_wrapper span {
+    line-height: 27px;
+    font-size: 15px;
+    margin: 0 5px;
+    color: #3e99b8;
+}
+
+.search_input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: #3e99b8;
+}
+
+.create_wrapper:hover {
+    font-weight: bold;
+}
+
+#header_actions {
+    width: 220px;
+}
+
+#header_role {
+    width: 278px;
 }
