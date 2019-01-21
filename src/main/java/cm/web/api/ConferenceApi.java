@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 /**
  * Api responsible for navigating to conference page and actions with conferences
  */
-@Controller()
+@Controller
 @RequestMapping("/conferences")
 public class ConferenceApi {
 

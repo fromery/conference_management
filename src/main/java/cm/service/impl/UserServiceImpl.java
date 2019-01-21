@@ -31,19 +31,16 @@ public class UserServiceImpl implements UserService {
     }
 
     @Transactional
-    @Override
     public User save(User user) {
         return repository.save(user);
     }
 
     @Transactional(readOnly = true)
-    @Override
     public List<User> findAll() {
         return repository.findAll();
     }
 
     @Transactional(readOnly = true)
-    @Override
     public User findOne(int id) {
         User user = repository.findOne(id);
         if (Objects.isNull(user)) {
@@ -54,12 +51,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Transactional
-    @Override
     public void delete(int id) {
         repository.delete(findOne(id));
     }
 
-    @Override
+    @Transactional
     public User registerNewUserAccount(UserDto userDto, Role role) throws EmailExistsException, UsernameExistsException {
 
         if (emailExist(userDto.getEmail())) {
@@ -86,17 +82,11 @@ public class UserServiceImpl implements UserService {
 
     private boolean emailExist(String email) {
         User user = repository.findByEmail(email);
-        if (user != null) {
-            return true;
-        }
-        return false;
+        return user != null;
     }
 
     private boolean usernameExist(String username) {
         User user = repository.findByUsername(username);
-        if (user != null) {
-            return true;
-        }
-        return false;
+        return user != null;
     }
 }

@@ -21,7 +21,7 @@
 	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 		<property name="persistenceUnitName" value="cms"/>
 		<property name="dataSource" ref="dataSource"/>
-		<property name="packagesToScan" value="cm"/>
+		<property name="packagesToScan" value="cm.domain"/>
 		<property name="jpaVendorAdapter">
 			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"/>
 		</property>
@@ -42,6 +42,6 @@
       Configure Spring Data JPA and set the base package of the
       repository interfaces
     -->
-	<jpa:repositories base-package="cm"/>
+	<jpa:repositories base-package="cm.repository"/>
 
 </beans>

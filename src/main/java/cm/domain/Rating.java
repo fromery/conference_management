@@ -1,6 +1,7 @@
 package cm.domain;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
@@ -10,6 +11,7 @@ import javax.persistence.*;
  * Hibernate provides JPA implementation
  */
 @Data
+@EqualsAndHashCode(of = {"id"})
 @Entity
 @Table(name = "rating")
 public class Rating {
