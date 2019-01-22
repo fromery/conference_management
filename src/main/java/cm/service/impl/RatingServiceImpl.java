@@ -14,31 +14,29 @@ import java.util.Objects;
  * Implementation of service for Rating entity
  */
 @Service
-public class RatingServiceImpl implements RatingService {
+public class RatingServiceImpl implements RatingService {   //TODO: Change implementation
 
-    private final RatingRepository repository;
+    private final RatingRepository ratingRepository;
 
     @Autowired
     public RatingServiceImpl(RatingRepository repository) {
-        this.repository = repository;
+        this.ratingRepository = repository;
     }
 
     @Transactional
-    @Override
     public Rating save(Rating rating) {
-        return repository.save(rating);
+        return ratingRepository.save(rating);
     }
 
     @Transactional(readOnly = true)
-    @Override
     public List<Rating> findAll() {
-        return repository.findAll();
+        return ratingRepository.findAll();
     }
 
     @Transactional(readOnly = true)
-    @Override
     public Rating findOne(int id) {
-        Rating rating = repository.findOne(id);
+        Rating rating = ratingRepository.findOne(id);
+
         if (Objects.isNull(rating)) {
             throw new IllegalArgumentException("Not found rating: " + id);
         }
@@ -49,6 +47,6 @@ public class RatingServiceImpl implements RatingService {
     @Transactional
     @Override
     public void delete(int id) {
-        repository.delete(findOne(id));
+        ratingRepository.delete(findOne(id));
     }
 }

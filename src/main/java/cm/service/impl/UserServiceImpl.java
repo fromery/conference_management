@@ -7,6 +7,8 @@ import cm.domain.validator.UsernameExistsException;
 import cm.repository.UserRepository;
 import cm.service.UserService;
 import cm.web.dto.UserDto;
+import cm.web.errors.CustomParameterizedException;
+import cm.web.mapper.UserMapper;
 import cm.web.security.PasswordEncoder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,28 +25,30 @@ import java.util.Objects;
 @Service
 public class UserServiceImpl implements UserService {
 
-    private final UserRepository repository;
+    private final UserRepository userRepository;
+    private final UserMapper userMapper;
 
     @Autowired
-    public UserServiceImpl(UserRepository repository) {
-        this.repository = repository;
+    public UserServiceImpl(UserRepository repository, UserMapper userMapper) {
+        this.userRepository = repository;
+        this.userMapper = userMapper;
     }
 
     @Transactional
     public User save(User user) {
-        return repository.save(user);
+        return userRepository.save(user);
     }
 
     @Transactional(readOnly = true)
     public List<User> findAll() {
-        return repository.findAll();
+        return userRepository.findAll();
     }
 
     @Transactional(readOnly = true)
     public User findOne(int id) {
-        User user = repository.findOne(id);
+        User user = userRepository.findOne(id);
         if (Objects.isNull(user)) {
-            throw new IllegalArgumentException("Not found user: " + id);
+            throw new CustomParameterizedException("No such user found", (String) null);
         }
 
         return user;
@@ -52,7 +56,13 @@ public class UserServiceImpl implements UserService {
 
     @Transactional
     public void delete(int id) {
-        repository.delete(findOne(id));
+        User user = userRepository.findOne(id);
+
+        if (Objects.isNull(user)) {
+            throw new CustomParameterizedException("No such user found", (String) null);
+        }
+
+        userRepository.delete(findOne(id));
     }
 
     @Transactional
@@ -66,27 +76,23 @@ public class UserServiceImpl implements UserService {
             throw new UsernameExistsException(
                     "There is an account with that username:" + userDto.getUsername());
         }
-        final User user = new User();
 
-        user.setFirstName(userDto.getFirstName());
-        user.setLastName(userDto.getLastName());
-        user.setEmail(userDto.getEmail());
-        user.setUsername(userDto.getUsername());
+        final User user = userMapper.map(userDto);
         user.setPassword(PasswordEncoder.encode(userDto.getPassword()));
         user.setRole(role.toString());
         user.setCreatedBy(userDto.getUsername());
         user.setCreatedAt(LocalDateTime.now());
 
-        return repository.save(user);
+        return userRepository.save(user);
     }
 
     private boolean emailExist(String email) {
-        User user = repository.findByEmail(email);
+        User user = userRepository.findByEmail(email);
         return user != null;
     }
 
     private boolean usernameExist(String username) {
-        User user = repository.findByUsername(username);
+        User user = userRepository.findByUsername(username);
         return user != null;
     }
 }
