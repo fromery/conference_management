@@ -1,19 +1,13 @@
 package cm.web.api;
 
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
- * Api responsible for navigating to conference page and actions with conferences
+ * Api responsible for actions with conferences
  */
-@Controller
-@RequestMapping("/conferences")
+@RestController
+@RequestMapping("/api/conferences")
 public class ConferenceApi {
-
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String getConferencePage() {
-        return "conferences";
-    }
 
 }

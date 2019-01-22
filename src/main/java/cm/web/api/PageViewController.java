@@ -21,13 +21,13 @@ import javax.validation.Valid;
 import java.util.logging.Logger;
 
 /**
- * Api responsible for navigating to sign up, login and home pages
+ * Api responsible for navigating to all pages
  */
 @Controller
 @RequestMapping("/")
-public class HomeApi {
+public class PageViewController {
 
-    private static Logger log = Logger.getLogger(HomeApi.class.getName());
+    private static Logger log = Logger.getLogger(PageViewController.class.getName());
 
     @Autowired
     private UserService userService;
@@ -98,5 +98,35 @@ public class HomeApi {
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String goLogin() {
         return "login";
+    }
+
+    /**
+     * Shows user page
+     *
+     * @return users.jsp page
+     */
+    @RequestMapping(value = "/users", method = RequestMethod.GET)
+    public String getUsersPage() {
+        return "users";
+    }
+
+    /**
+     * Shows conference page
+     *
+     * @return conferences.jsp page
+     */
+    @RequestMapping(value = "/conferences", method = RequestMethod.GET)
+    public String getConferencePage() {
+        return "conferences";
+    }
+
+    /**
+     * Shows report page
+     *
+     * @return reports.jsp page
+     */
+    @RequestMapping(value = "/reports", method = RequestMethod.GET)
+    public String getReportsPage() {
+        return "reports";
     }
 }

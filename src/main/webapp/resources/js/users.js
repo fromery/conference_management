@@ -1,7 +1,6 @@
 $(document).ready(function () {
     var page = new Page();
     page.init();
-    console.log('INIT!');
 });
 
 function Page() {
@@ -10,7 +9,7 @@ function Page() {
 
 Page.prototype.init = function () {
     var that = this;
-    $.get(root + "/users/all", function (data) {
+    $.get(root + "/api/users/all", function (data) {
         that.displayTable(data);
     });
 };
@@ -38,9 +37,9 @@ Page.prototype.createRowHtml = function (row) {
     var $roleCell = $("<td/>").text(row.role);
 
     var $actions = $("<td/>").attr("class", "actions");
-    var $viewLink = $("<a/>").attr("href", root + "/users/view/" + row.id).attr("class", "viewLink").text("View");
-    var $updateLink = $("<a/>").attr("href", root + "/users/update/" + row.id).attr("class", "updateLink").text("Update");
-    var $deleteLink = $("<a/>").attr("href", root + "/users/delete/" + row.id).attr("class", "deleteLink").text("Delete");
+    var $viewLink = $("<a/>").attr("href", root + "/api/users/view/" + row.id).attr("class", "viewLink").text("View");
+    var $updateLink = $("<a/>").attr("href", root + "/api/users/update/" + row.id).attr("class", "updateLink").text("Update");
+    var $deleteLink = $("<a/>").attr("href", root + "/apiusers/delete/" + row.id).attr("class", "deleteLink").text("Delete");
 
     $actions.append($viewLink).append($updateLink).append($deleteLink);
 
