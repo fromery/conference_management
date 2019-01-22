@@ -28,6 +28,7 @@ many physically everything came to the Meeting. Implement notifying participants
     8.  Hibernate
     9.  REST
     10. Mapstruct
+    11. Swagger
 
 ## Front-end Technologies:
     1.  JSP
@@ -57,3 +58,4 @@ To setup this project locally, use the following configuration:
     - `moderator / 123456`
     - `user / 123456`
     
+## [Swagger is available here]( http://localhost:8080/conference_management_war_exploded/swagger-ui.html)

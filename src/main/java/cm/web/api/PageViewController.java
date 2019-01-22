@@ -6,6 +6,7 @@ import cm.domain.validator.EmailExistsException;
 import cm.domain.validator.UsernameExistsException;
 import cm.service.UserService;
 import cm.web.dto.UserDto;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -23,6 +24,7 @@ import java.util.logging.Logger;
 /**
  * Api responsible for navigating to all pages
  */
+@Api
 @Controller
 @RequestMapping("/")
 public class PageViewController {
